@@ -39,8 +39,26 @@ class Solution:
                     res.append([left_max, right_min])
         return res
 
+    def intervalIntersection2(
+        self, firstList: List[List[int]], secondList: List[List[int]]
+    ) -> List[List[int]]:
+        size_first = len(firstList)
+        size_second = len(secondList)
+        i, j = 0, 0
+        res = []
+        while i < size_first and j < size_second:
+            a1, a2 = firstList[i]
+            b1, b2 = secondList[j]
+            if b2 >= a1 and a2 >= b1:
+                res.append([max(a1, b1), min(a2, b2)])
+            if a2 > b2:
+                j += 1
+            else:
+                i += 1
+        return res
 
-ans = Solution().intervalIntersection(
+
+ans = Solution().intervalIntersection2(
     [[3, 5], [9, 20]], [[4, 5], [7, 10], [11, 12], [14, 15], [16, 20]]
 )
 print(ans)
