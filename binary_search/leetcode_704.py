@@ -20,4 +20,4 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print(Solution().search([-1, 0, 3, 5, 9, 12], 9))
+    print(Solution().search([-1, 0, 3, 3, 5, 9, 12], 3))
