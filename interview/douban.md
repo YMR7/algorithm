@@ -10,6 +10,12 @@
 
 一面2个人，问了一下之前网上的做的题目，说了一下思路，在提示之下发现不完善的地方。然后问了一些Python相关的问题。然后是交叉面，也是两个人，问了一个算法，然后根据简历问了一些数据库、git相应的知识点。最后是总监面试，主要就是看性格是否适合team了。
 
+1、堆排序（建堆时间复杂度为O(n)）
+2、Linux中硬链接与软链接区别
+3、说过用到的设计模式
+4、反转字符串。
+主要是问了很多基础题，http 到 mysql 都有涉及，还有设计协议的题
+
 
 
 笔试题
@@ -78,3 +84,13 @@ select content_id from user_recommended where user_id=xxx and recommended_status
 update content set delete_time=now() where content_id=xxx
 update user_recommended set recommended_status=0,update_time=now() where content_id=xxx
 ```
+
+
+一面：
+主要是笔试题，算法是链表合并
+
+二面准备
+- 数据库、git
+- promethus 优缺点、pull 模式 优缺点
+- 系统设计
+- 剑指offer 再看一遍

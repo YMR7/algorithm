@@ -19,7 +19,7 @@ class Solution:
             return 0
         dp = []
         for num in nums:
-            inx = self. binary_seatch_left(dp, num)
+            inx = self.binary_seatch_left(dp, num)
             if inx == len(dp):
                 dp.append(num)
             else:
