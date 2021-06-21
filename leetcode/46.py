@@ -15,6 +15,7 @@ class Solution:
         if size == len(track):
             temp = track.copy()
             self.res.append(temp)
+            return
         for num in nums:
             if num in track:
                 continue
