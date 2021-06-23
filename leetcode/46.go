@@ -13,19 +13,17 @@ func permute(nums []int) [][]int {
     // var res = [][]int{}
     res := [][]int{}
     record := []int{}
-    backtrack(nums, record, res)
-    return res
+    ans := backtrack(nums, record, res)
+    return ans
 }
 
-func backtrack(nums, track []int, ans [][]int) {
+func backtrack(nums, track []int, ans [][]int) [][]int {
     size := len(nums)
     if size == len(track) {
-        fmt.Println(ans)
         temp := make([]int, size)
         copy(temp, track)
         ans = append(ans, temp)
-        fmt.Println(ans)
-        return
+        return ans
     }
     for _, num := range nums {
         flag := 0
@@ -39,7 +37,8 @@ func backtrack(nums, track []int, ans [][]int) {
             continue
         }
         track = append(track, num)
-        backtrack(nums, track, ans)
+        ans = backtrack(nums, track, ans)
         track = track[:len(track) - 1]
     }
+    return ans
 }
