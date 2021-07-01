@@ -23,7 +23,7 @@ class Solution:
                 last_s_inx = i
             # 不匹配，回溯到上一次遇到*的两个坐标位置，从下一个位置开始重新匹配
             elif last_p_inx > -1:
-                # * 匹配一个    字符
+                # * 匹配一个字符
                 j = last_p_inx + 1
                 last_s_inx += 1
                 i = last_s_inx

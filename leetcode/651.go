@@ -1,19 +1,5 @@
-package main
-
-import (
-	"fmt"
-	"strconv"
-	// "strings"
-)
-
-func main() {
-	ans := maxA2(3)
-	fmt.Println(ans)
-}
-
-func maxA(n int) int{
-	memo := map[string]int{}
-	return dp(n, 0, 0, memo)
+func maxA(n int) {
+	return dp(n, 0, 0)
 }
 
 func dp(n, printNum, cacheNum int, memo map[string]int) int {
@@ -24,7 +10,7 @@ func dp(n, printNum, cacheNum int, memo map[string]int) int {
 	if value, ok := memo[theKey]; ok {
 		return value
 	}
-	res := max(dp(n-1, printNum+1, cacheNum, memo), dp(n-1, printNum+cacheNum, cacheNum, memo), dp(n-2, printNum, printNum, memo))
+	res := max(dp(n-1, printNum+1, cacheNum), dp(n-1, printNum+cacheNum, cacheNum), dp(n-2, printNum, printNum))
 	memo[theKey] = res
 	return res
 }
@@ -38,6 +24,8 @@ func max(a ...int) int {
 	}
 	return res
 }
+
+// -------------方法二-----------
 
 func maxA2(n int) int {
 	dp := make([]int, n+1)
