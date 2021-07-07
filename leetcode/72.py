@@ -5,7 +5,7 @@ class Solution:
     def helper(self, i, j, word1, word2):
         if i == -1:
             return j + 1
-        if j == -1: 
+        if j == -1:
             return i + 1
         if word1[i] == word2[j]:
             return self.helper(i - 1, j - 1, word1, word2)

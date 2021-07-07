@@ -1,10 +1,3 @@
-package main
-
-func main() {
-	ans := minDistance("horse", "ros")
-	println(ans)
-}
-
 func minDistance(word1 string, word2 string) int {
 	size1 := len(word1)
 	size2 := len(word2)
