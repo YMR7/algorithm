@@ -1,13 +1,3 @@
-package main
-
-import "fmt"
-
-func main() {
-	piles := []int{3, 9, 7, 11}
-	ans := trap(piles)
-	fmt.Println(ans)
-}
-
 func trap(height []int) int {
 	if len(height) <= 1 {
 		return 0
