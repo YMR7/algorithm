@@ -1,13 +1,11 @@
-package main
-
-import "fmt"
-
-func main() {
-	preorder := []int{3,9,20,15,7}
-	inorder := []int{9,3,15,20,7}
-	ans := buildTree(preorder, inorder)
-	fmt.Println(ans)
-}
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 
 type TreeNode struct {
 	Val   int
@@ -26,9 +24,6 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	}
 	root := &TreeNode {
 		Val: preorder[0],
-	}
-	if root.Left == nil {
-		fmt.Println("================")
 	}
 	splitIndex := 0
 	for inx, val := range inorder {
