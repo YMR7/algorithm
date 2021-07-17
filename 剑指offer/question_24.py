@@ -18,6 +18,7 @@ class Solution:
         if not root:
             return []
         res = []
+
         def find_path_main(root, path, current_sum):
             current_sum += root.val
             path.append(root)
@@ -34,5 +35,6 @@ class Solution:
                 if root.right:
                     find_path_main(root.right, path, current_sum)
             path.pop()
+
         find_path_main(root, [], 0)
         return sorted(res, reverse=False)

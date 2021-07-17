@@ -1,42 +1,27 @@
 package main
-
-import "fmt"
-
+ 
+import (
+    "fmt"
+)
+ 
 func main() {
-	preorder := []int{3,9,20,15,7}
-	inorder := []int{9,3,15,20,7}
-	ans := buildTree(preorder, inorder)
-	fmt.Println(ans)
+    var baseArr = []int{1,2,3}
+    var part1 = baseArr[2:]              // [1] cap 3
+    // var part2 = baseArr[1:]              // [2,3] cap 2
+    var result [][]int
+    for  i := 0; i < 10; i++ {
+        fmt.Println(cap(part1))
+        part1 := append(part1, i) // （2）
+        fmt.Println(cap(part1))
+        fmt.Println(part1)
+        // fmt.Println(tempArr)
+        fmt.Println(baseArr)
+        fmt.Println("===============")
+        // result = append(result, tempArr)   // （3）
+    }
+    fmt.Println(result)
 }
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// 牛啤堂
+// 北平机器
 
-func buildTree(preorder []int, inorder []int) *TreeNode {
-	size := len(preorder)
-	if size == 0 {
-		return nil
-	}else if size == 1 {
-		return &TreeNode {
-			Val: preorder[0],
-		}
-	}
-	root := &TreeNode {
-		Val: preorder[0],
-	}
-	if root.Left == nil {
-		fmt.Println("================")
-	}
-	splitIndex := 0
-	for inx, val := range inorder {
-		if val == preorder[0] {
-			splitIndex = inx
-		}
-	}
-	root.Left = buildTree(preorder[1:splitIndex+1], inorder[:splitIndex])
-	root.Right = buildTree(preorder[splitIndex+1:], inorder[splitIndex+1:])
-	return root
-}

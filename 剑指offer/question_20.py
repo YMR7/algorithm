@@ -8,7 +8,7 @@ class Solution:
     def push(self, node):
         # write code here
         self.stack.append(node)
-        if not self.assist  or node <= self.assist[-1]:
+        if not self.assist or node <= self.assist[-1]:
             self.assist.append(node)
 
     def pop(self):

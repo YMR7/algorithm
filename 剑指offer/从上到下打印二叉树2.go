@@ -6,7 +6,7 @@
  *     Right *TreeNode
  * }
  */
- type TreeNode struct {
+type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode

@@ -1,24 +1,9 @@
 package main
 
-import "fmt"
-
-func main() {
-	a := &TreeNode{
-		Val:3,
-	}
-	b := &TreeNode{
-		Val:2,
-	}
-	c := &TreeNode{
-		Val:1,
-	}
-	a.Left = b
-	a.Right = c
-	bak := a
-	ans := mirrorTree(a)
-	fmt.Println(ans)
-	fmt.Println(bak)
-}
+import (
+	"fmt"
+	"math"
+)
 
 type TreeNode struct {
 	Val   int
@@ -26,13 +11,20 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func mirrorTree(root *TreeNode) *TreeNode {
-	if root == nil {
-		return root
+func kthLargest(root *TreeNode, k int) (res int) {
+	var recur func(root *TreeNode)
+	recur = func(root *TreeNode) {
+		if root == nil || k <= 0 {
+			return
+		}
+		recur(root.Right)
+		k--
+		if k == 0 {
+			res = root.Val
+			return
+		}
+		recur(root.Left)
 	}
-	l := mirrorTree(root.Left)
-	r := mirrorTree(root.Right)
-	root.Left = r
-	root.Right = l
-	return root
+	recur(root)
+	return
 }
