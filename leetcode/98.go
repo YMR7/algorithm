@@ -28,3 +28,22 @@ func inorder(root *TreeNode, order *[]int) {
 	*order = append(*order, root.Val)
 	inorder(root.Right, order)
 }
+
+
+// ---------------------way 2-------------------------
+func isValidBST(root *TreeNode) bool {
+	return recur(root, nil, nil)
+}
+
+func recur(root *TreeNode, minNode *TreeNode, maxNode *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+	if minNode != nil && root.Val <= minNode.Val {
+		return false
+	}
+	if maxNode != nil && root.Val >= maxNode.Val {
+		return false
+	}
+	return recur(root.Left, minNode, root) && recur(root.Right, root, maxNode)
+}

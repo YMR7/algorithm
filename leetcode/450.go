@@ -31,6 +31,7 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 		return root.Right
 	}
 	// 待删除节点的左右孩子皆不为空
+	// 寻找右子树中的最小节点或左子树中的最大节点替换当前节点，下处代码使用的是右子树中的最小节点
 	minNode := root.Right
 	for minNode.Left != nil {
 		minNode = minNode.Left
